@@ -1,1 +1,13 @@
+import os
+from netmiko import ConnectHandler
+from getpass import getpass
+from netmiko.ssh_exception import AuthenticationEception
 
+USERNAME = input("Please enter your SSH username: ")
+Pass = getpass("Please enter your SSH password: ")
+
+device = {
+  'ip' :
+  'username' : USERNAME, 
+  'password' : PASS,
+  'device_type' : 'cisco_iso'
