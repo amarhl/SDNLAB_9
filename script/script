@@ -15,10 +15,4 @@ device = {
 try:
   connection = ConnectHandler(**device)
 except (SSHException):
-  print('Could not connect to the device with SSH. Check your SSH setting on: ' + device['ip'])
-except(EOFError):
-  print('End of file while attempting: ' + device['ip'])
-print("script successfully completed")
-
-output = connection.send_command('show ip int brief')
-print(output)
+  print('Could not connect to the device with SSH. Check your SSH setting on: ' + device['ip']
