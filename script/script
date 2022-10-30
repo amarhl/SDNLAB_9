@@ -1,0 +1,24 @@
+from netmiko import ConnectHandler
+from paramiko.ssh_exception import SSHException
+from getpass import getpass
+
+USERNAME = input("Please enter your SSH username: ")
+PASS = getpass("Please enter your SSH password: ")
+
+device = {
+  'ip' : '192.168.108.12',
+  'username' : USERNAME,
+  'password' : PASS,
+  'device_type' : 'cisco_ios'
+}
+
+try:
+  connection = ConnectHandler(**device)
+except (SSHException):
+  print('Could not connect to the device with SSH. Check your SSH setting on: ' + device['ip'])
+except(EOFError):
+  print('End of file while attempting: ' + device['ip'])
+print("script successfully completed")
+
+output = connection.send_command('show ip int brief')
+print(output)
