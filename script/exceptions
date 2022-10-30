@@ -21,3 +21,5 @@ try:
 
 except (AuthenticationException):
   print("An authentication error occured while connection to: " + device['ip'])
+
+# netmiko.ssh_exception is not working
